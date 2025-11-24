@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据分析AI助手</title>
+    <link rel="stylesheet" href="../asset/css/style.css">
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.4.3/echarts.min.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- 顶部导航 -->
+        <header class="header">
+            <div class="logo">
+                <i class="fa-solid fa-robot"></i>
+                <span>DataAI 助手</span>
+            </div>
+            <div class="header-actions">
+                <button class="btn setting-btn"><i class="fa-solid fa-cog"></i></button>
+                <div class="user-avatar">
+                    <img src="../asset/image/user.png" alt="用户头像">
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <!-- 左侧历史任务 -->
+            <aside class="sidebar">
+                <div class="sidebar-header">
+                    <h2>历史任务</h2>
+                    <div class="task-filters">
+                        <button class="filter-btn active" data-filter="all">全部</button>
+                        <button class="filter-btn" data-filter="completed">已完成</button>
+                        <button class="filter-btn" data-filter="running">进行中</button>
+                    </div>
+                </div>
+
+                <div class="task-list">
+                    <!-- 历史任务项（动态生成） -->
+                    <div class="task-item completed" data-task-id="1">
+                        <div class="task-status">
+                            <i class="fa-solid fa-check text-success"></i>
+                        </div>
+                        <div class="task-info">
+                            <div class="task-title">分析2025Q3销售TOP10产品</div>
+                            <div class="task-time">2025-11-22 10:30</div>
+                        </div>
+                        <div class="task-actions">
+                            <button class="re-run-btn"><i class="fa-solid fa-repeat"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="task-item running" data-task-id="2">
+                        <div class="task-status">
+                            <i class="fa-solid fa-spinner fa-spin text-warning"></i>
+                        </div>
+                        <div class="task-info">
+                            <div class="task-title">用户留存率趋势分析</div>
+                            <div class="task-time">2025-11-22 14:15</div>
+                        </div>
+                        <div class="task-actions">
+                            <button class="cancel-btn"><i class="fa-solid fa-times"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="task-item completed" data-task-id="3">
+                        <div class="task-status">
+                            <i class="fa-solid fa-check text-success"></i>
+                        </div>
+                        <div class="task-info">
+                            <div class="task-title">各地区销售占比统计</div>
+                            <div class="task-time">2025-11-21 09:45</div>
+                        </div>
+                        <div class="task-actions">
+                            <button class="re-run-btn"><i class="fa-solid fa-repeat"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- 右侧AI交互区 -->
+            <section class="chat-area">
+                <div class="chat-container" id="chatContainer">
+                    <!-- 系统欢迎消息 -->
+                    <div class="message system-message">
+                        <div class="message-avatar">
+                            <i class="fa-solid fa-robot"></i>
+                        </div>
+                        <div class="message-content">
+                            <p>您好！我是数据分析AI助手，可帮您分析数据、生成图表。请输入您的分析需求（例如："分析近3个月的用户增长趋势"）</p>
+                        </div>
+                    </div>
+
+                    <!-- 用户消息示例 -->
+                    <div class="message user-message">
+                        <div class="message-avatar">
+                            <img src="../asset/image/user.png" alt="用户">
+                        </div>
+                        <div class="message-content">
+                            <p>分析2025Q3销售TOP10产品，并生成柱状图</p>
+                        </div>
+                    </div>
+
+                    <!-- AI回复示例（含图表） -->
+                    <div class="message ai-message">
+                        <div class="message-avatar">
+                            <i class="fa-solid fa-robot"></i>
+                        </div>
+                        <div class="message-content">
+                            <p>以下是2025年Q3销售TOP10产品的分析结果：</p>
+                            <div class="chart-wrapper">
+                                <div class="chart-inner" id="salesChart" style="width:100%;height:300px;"></div>
+                                <div class="chart-actions">
+                                    <button class="chart-btn"><i class="fa-solid fa-expand"></i> 放大</button>
+                                    <button class="chart-btn"><i class="fa-solid fa-chart-pie"></i> 切换图表</button>
+                                    <button class="chart-btn"><i class="fa-solid fa-download"></i> 下载</button>
+                                </div>
+                            </div>
+                            <p>结论：产品A以12,580件销量位居榜首，同比增长18.2%，主要得益于华东地区渠道拓展。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 输入区域 -->
+                <div class="input-area">
+                    <textarea id="userInput" placeholder="请输入您的分析需求..."></textarea>
+                    <button class="send-btn" id="sendBtn"><i class="fa-solid fa-paper-plane"></i></button>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="../asset/js/script.js"></script>
+</body>
+</html>
