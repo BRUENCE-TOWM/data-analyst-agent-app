@@ -1,0 +1,23 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "ssh": "Disabled",
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "Mysql80",
+            "username": "root",
+            "database": "data_analytics_db"
+        }
+    ],
+    "python.analysis.extraPaths": [
+    "${workspaceFolder}/feature/server"  // 指向app模块所在目录
+    ],
+    "python.envFile": "${workspaceFolder}/.env",  // 可选：配置环境变量文件
+    "python.defaultInterpreterPath": "D:\\conda\\data_agent\\python.exe"  // 替换为你的Conda环境路径
+}

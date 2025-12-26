@@ -1,0 +1,13 @@
+### 测试健康检查接口
+GET http://127.0.0.1:5001/api/v1/data/health
+Content-Type: application/json
+
+### 测试大模型代码生成接口
+POST http://127.0.0.1:5001/api/v1/data/analyze
+Content-Type: application/json
+
+{
+  "user_id": "test_001",
+  "requirement": "统计列表[10,20,30,40,50]的平均值、中位数和标准差",
+  "tool_type": "Python"
+}

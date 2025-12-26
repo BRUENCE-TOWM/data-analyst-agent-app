@@ -1,0 +1,18 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Flask (data_agent)",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/feature/server/run.py",
+      "python": "${command:python.interpreterPath}",
+      "cwd": "${workspaceFolder}/feature/server",
+      "env": {
+        "FLASK_ENV": "development",
+        "CONDA_DEFAULT_ENV": "data_agent"
+      },
+      "justMyCode": false
+    }
+  ]
+}
