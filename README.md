@@ -39,7 +39,78 @@
 - **文件选择**：file_picker 📁
 
 ## 项目结构
-data-analyst-agent-app/ ├── feature/ # 主功能目录 │ ├── client/ # 客户端代码 │ │ ├── electron_desktop/ # Electron桌面应用（可选） │ │ └── flutter_app/ # Flutter跨平台应用 │ │ ├── android/ # Android平台代码 │ │ ├── ios/ # iOS平台代码 │ │ ├── lib/ # Flutter核心代码 │ │ ├── web/ # Web平台代码 │ │ └── windows/ # Windows平台代码 │ └── server/ # 服务器端代码 │ ├── app/ # FastAPI应用主目录 │ │ ├── api/ # API接口定义 │ │ ├── config/ # 配置文件 │ │ ├── models/ # 数据模型 │ │ ├── services/ # 业务逻辑服务 │ │ ├── utils/ # 工具函数 │ │ └── main.py # 应用入口 │ └── db/ # 数据库初始化脚本 ├── start_all.bat # Windows启动脚本 ├── conda_env.yml # Conda环境配置 └── README.md # 项目说明文档
+data-analyst-agent-app/
+├── .env                    # 环境变量配置文件
+├── .gitignore              # Git忽略文件配置
+├── LICENSE                 # 项目许可证
+├── README.md               # 项目说明文档
+├── conda_env.yml           # Conda环境配置文件
+├── docs/                   # 项目文档目录
+│   ├── 代码.docx            # 代码文档
+│   ├── 代码.pdf             # 代码文档（PDF格式）
+│   ├── 数据分析智能体多端开发概要设计说明书.docx  # 概要设计文档
+│   ├── 数据分析智能体多端开发概要设计说明书.pdf   # 概要设计文档（PDF格式）
+│   ├── 数据分析智能体多端开发项目 - 详细设计文档.pdf  # 详细设计文档
+│   ├── 调研报告.docx        # 调研报告
+│   ├── 调研报告.pdf         # 调研报告（PDF格式）
+│   ├── 需求规格说明书（SRS）- 数据分析智能体多端开发（前四部分）1.docx  # 需求规格说明书
+│   └── 需求规格说明书（SRS）- 数据分析智能体多端开发（前四部分）1.pdf   # 需求规格说明书（PDF格式）
+├── feature/                # 主功能目录
+│   ├── client/             # 客户端代码
+│   │   ├── electron_desktop/  # Electron桌面应用（可选）
+│   │   └── flutter_app/    # Flutter跨平台应用
+│   │       ├── .dart_tool/  # Dart工具缓存
+│   │       ├── .flutter-plugins-dependencies  # Flutter插件依赖信息
+│   │       ├── .gitignore   # Flutter项目Git忽略配置
+│   │       ├── .metadata    # Flutter项目元数据
+│   │       ├── README.md    # Flutter项目说明
+│   │       ├── analysis_options.yaml  # Dart代码分析配置
+│   │       ├── android/     # Android平台代码
+│   │       ├── build/       # 构建输出目录
+│   │       ├── code_generator.iml  # IDE项目配置文件
+│   │       ├── flutter_app.iml/  # IDE项目配置文件
+│   │       ├── ios/         # iOS平台代码
+│   │       ├── lib/         # Flutter核心代码
+│   │       ├── linux/       # Linux平台代码
+│   │       ├── macos/       # macOS平台代码
+│   │       ├── pubspec.lock  # 依赖版本锁定文件
+│   │       ├── pubspec.yaml  # Flutter依赖配置
+│   │       ├── test/        # 测试代码
+│   │       ├── web/         # Web平台代码
+│   │       └── windows/     # Windows平台代码
+│   └── server/              # 服务器端代码
+│       ├── app/             # FastAPI应用主目录
+│       │   ├── __pycache__/  # Python编译缓存
+│       │   ├── api/         # API接口定义
+│       │   │   ├── analysis.py  # 分析相关接口
+│       │   │   ├── code_api.py  # 代码生成接口
+│       │   │   ├── code_exec_api.py  # 代码执行接口
+│       │   │   ├── task_api.py  # 任务管理接口
+│       │   │   └── user.py  # 用户相关接口
+│       │   ├── app/         # 应用核心配置
+│       │   ├── backup.sql   # 数据库备份文件
+│       │   ├── config/      # 配置文件
+│       │   │   ├── database.py  # 数据库配置
+│       │   │   └── db_config.py  # 数据库连接配置
+│       │   ├── logs/        # 日志文件目录
+│       │   ├── main.py      # FastAPI应用入口
+│       │   ├── models/      # 数据模型
+│       │   │   └── analysis_record.py  # 分析记录模型
+│       │   ├── services/    # 业务逻辑服务
+│       │   │   ├── code_executor.py  # 代码执行服务
+│       │   │   ├── db_service.py  # 数据库服务
+│       │   │   └── llm_service.py  # LLM服务（本地模型，未被生产使用）
+│       │   └── utils/       # 工具函数
+│       │       ├── auth.py  # 认证工具
+│       │       └── logger.py  # 日志工具
+│       ├── db/              # 数据库初始化脚本
+│       │   └── init_db.sql  # 数据库初始化SQL
+│       ├── run.py           # 后端运行脚本
+│       ├── test_llm.py      # LLM测试脚本
+│       └── test_local_qwen.py  # 本地千问模型测试脚本
+├── start_all.bat           # Windows一键启动脚本
+├── temp/                   # 临时文件目录
+└── test_api.http           # API测试文件
 
 ## 快速开始
 
